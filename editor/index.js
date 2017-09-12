@@ -12,7 +12,7 @@ var editor = new Simditor({
         params: null,
         fileKey: 'upload_file',
         connectionCount: 3,
-        leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
+      //  leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
     },
     tabIndent: true,
     //工具条
@@ -88,7 +88,12 @@ var editor = new Simditor({
         {name: 'SQL', value: 'sql'}
     ]
 });
-
+setTimeout(function () {
+    editor.setValue('aaa');
+},100);
+setTimeout(function () {
+    console.log(editor.getValue());
+},200);
 //方法
 // editor.setValue();
 // editor.getValue();
@@ -99,7 +104,9 @@ var editor = new Simditor({
 // editor.destroy();
 
 //事件
-editor.on('valuechanged',function (e,src) {
+editor.on('valuechanged',function (e) {
+    console.log('value change');
+    console.log(e);
 });
 editor.on('selectionchanged',function () {
 });
